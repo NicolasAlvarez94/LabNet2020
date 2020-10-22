@@ -1,0 +1,16 @@
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Vista.exe.config
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Vista.exe
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Vista.pdb
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.FrmPrincipal.resources
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.exe
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.pdb
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Datos.dll
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Modelo.dll
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Datos.pdb
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\bin\Debug\Modelo.pdb
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.csproj.CopyComplete
+C:\Users\Usuario\Desktop\Ejercicio1\Vista\obj\Debug\Vista.FrmMostrarOperaciones.resources
