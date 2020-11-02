@@ -10,18 +10,18 @@ namespace Data.Dao.ImplementDAO
 {
     public class EmployeeImplementDAO : IEmployeeDAO
     {
-        private NorthwindContext dbContext;
+        private static NorthwindContext dbContext;
 
         public EmployeeImplementDAO() {
-            this.dbContext = this.GetSingleInstanceContext();            
+            dbContext = this.GetSingleInstanceContext();            
         }
 
         // Singleton
         private NorthwindContext GetSingleInstanceContext() {         
-            bool validateSingleInstance = this.dbContext == null;
+            bool validateSingleInstance = dbContext == null;
 
             if (validateSingleInstance) {             
-                this.dbContext = new NorthwindContext();
+                dbContext = new NorthwindContext();
             }
             return dbContext;
         }
@@ -44,7 +44,7 @@ namespace Data.Dao.ImplementDAO
 
         public List<Employee> ListEmployees() {
             try {
-                List<Employee> listEmployees = this.dbContext.Employees.ToList();
+                List<Employee> listEmployees = dbContext.Employees.ToList();
                 return listEmployees;
             }
             catch (InvalidOperationException ex) { throw ex; }

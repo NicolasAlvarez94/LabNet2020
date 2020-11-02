@@ -12,18 +12,18 @@ namespace Data.Dao.ImplementDAO
     public class CategoryImplementDAO : ICategoryDAO
     {
 
-        private NorthwindContext dbContext;
+        private static NorthwindContext dbContext;
 
         public CategoryImplementDAO() {
-            this.dbContext = this.GetSingleInstanceContext();
+            dbContext = this.GetSingleInstanceContext();
         }
 
         // Singleton.
         private NorthwindContext GetSingleInstanceContext() {         
-            bool validateSingleInstance = this.dbContext == null;
+            bool validateSingleInstance = dbContext == null;
 
             if (validateSingleInstance) {             
-                this.dbContext = new NorthwindContext();
+                dbContext = new NorthwindContext();
             }
             return dbContext;
         }
@@ -36,8 +36,8 @@ namespace Data.Dao.ImplementDAO
 
         public void RegisterCategory(Category category) {
             try {             
-                this.dbContext.Categories.Add(category);
-                this.dbContext.SaveChanges();
+                dbContext.Categories.Add(category);
+                dbContext.SaveChanges();
             }
             catch(InvalidOperationException ex) {
                 throw ex;

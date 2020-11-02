@@ -13,3 +13,18 @@ C:\Users\Usuario\Desktop\version 2 northwind\Northwind\Data.Dao\obj\Debug\Data.D
 C:\Users\Usuario\Desktop\version 2 northwind\Northwind\Data.Dao\obj\Debug\Data.Dao.csproj.CopyComplete
 C:\Users\Usuario\Desktop\version 2 northwind\Northwind\Data.Dao\obj\Debug\Data.Dao.dll
 C:\Users\Usuario\Desktop\version 2 northwind\Northwind\Data.Dao\obj\Debug\Data.Dao.pdb
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\Data.Dao.dll.config
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\Data.Dao.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\Data.Dao.pdb
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\Entities.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\Entities.pdb
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\Entities.dll.config
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\obj\Debug\Data.Dao.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\obj\Debug\Data.Dao.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\obj\Debug\Data.Dao.csproj.CopyComplete
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\obj\Debug\Data.Dao.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio3\Northwind\Data.Dao\obj\Debug\Data.Dao.pdb
