@@ -12,12 +12,10 @@ namespace Data.Dao.ImplementDAO
     public class EmployeeImplementDAO : BaseContextDAO, IEntityDAO<Employee>
     {
 
-        // Contexto Heredado de la BaseContextDao, Invoca a Metodo de la Clase Base para Crear la Instancia
-        public EmployeeImplementDAO() {            
-            dbContext = base.GetSingleInstanceContext();          
-        }
-
-
+        // Contexto Heredado de la BaseContextDao, se Genera Instancia en lel Constructor de la Clase Base.
+        public EmployeeImplementDAO() { }
+            
+        
         #region Metodos Publicos
 
         // Metodos de Acceso a Datos, Invocados en la Capa de Logica.

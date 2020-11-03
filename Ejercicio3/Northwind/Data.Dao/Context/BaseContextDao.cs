@@ -10,6 +10,11 @@ namespace Data.Dao.Context
     {
         
         public static NorthwindContext dbContext = null;
+
+        public BaseContextDAO() {
+            dbContext = GetSingleInstanceContext();
+        }
+
         
         public NorthwindContext GetSingleInstanceContext() {
             bool validateSingleInstance = dbContext == null;

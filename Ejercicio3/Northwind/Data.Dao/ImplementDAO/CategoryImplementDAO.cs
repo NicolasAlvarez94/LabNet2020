@@ -12,12 +12,11 @@ namespace Data.Dao.ImplementDAO
 {
     public class CategoryImplementDAO : BaseContextDAO, IEntityDAO<Category>
     {
+
+        // Contexto Heredado de la BaseContextDao, se Genera Instancia en lel Constructor de la Clase Base.
+        public CategoryImplementDAO() { }
+            
         
-        public CategoryImplementDAO() {
-            dbContext = base.GetSingleInstanceContext();
-        }
-
-
         #region Metodos Publicos
 
         // Metodos de Acceso a Datos, Invocados en la Capa de Logica.
