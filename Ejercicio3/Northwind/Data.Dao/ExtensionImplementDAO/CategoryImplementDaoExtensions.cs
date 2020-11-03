@@ -9,27 +9,16 @@ using System.Threading.Tasks;
 
 namespace Data.Dao.ExtensionImplementDAO
 {
-    public static class CategoryImplementDaoExtensions
+    public static class CategoryImplementDaoExtensions 
     {
         private static NorthwindContext dbContext = new NorthwindContext();
 
 
         // Metodos de Extension de Acesso a Datos, Extienden la Funcionalidad de CategoryImplementDAO.
 
-        public static Category GetCategoryByID(this ICategoryDAO ICategory, int id) {
-            try {
-                var objCategory = (from category in dbContext.Categories
-                                   where category.CategoryID == id
-                                   select category).First();
-                return objCategory;
-            }
-            catch(Exception ex) {
-                throw ex;
-            }            
-        }
+        #region Metodos Publicos
 
-
-        public static List<string> GetCategoryNames(this ICategoryDAO ICategory) {
+        public static List<string> GetCategoryNames(this IEntityDAO<Category> ICategory) {
             try {
                 var listCategoryNames = (from category in dbContext.Categories
                                    select category.CategoryName).ToList();
@@ -41,7 +30,7 @@ namespace Data.Dao.ExtensionImplementDAO
         }
 
 
-        public static int GetNumberCategories(this ICategoryDAO ICategory) {
+        public static int GetNumberCategories(this IEntityDAO<Category> ICategory) {
             try {
                 var intNumbreCategories = (from category in dbContext.Categories
                                            select category).Count();
@@ -52,5 +41,6 @@ namespace Data.Dao.ExtensionImplementDAO
             }
         }
 
+        #endregion
     }
 }

@@ -20,22 +20,22 @@ namespace Data.Dao.ExtensionImplementDAO.Tests
         public void GetCategoryByIDTest() {
             // ARRANGE.
             var idCategory = 1;
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();
             // ACT.
-            objCategoryDAO.GetCategoryByID(idCategory);            
+            objCategoryDAO.GetEntityByID(idCategory);            
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void GetCategoryNamesTest() {                                 
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();            
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();            
             objCategoryDAO.GetCategoryNames();
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void GetNumberCategoriesTest() {            
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();
             objCategoryDAO.GetNumberCategories();
         }
     }

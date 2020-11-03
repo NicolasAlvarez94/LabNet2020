@@ -13,7 +13,7 @@ namespace Logic
 {
     public class EmployeeLogic
     {
-        private IEmployeeDAO employeeDAO;
+        private IEntityDAO<Employee> employeeDAO;
 
         public EmployeeLogic() {
             this.employeeDAO = new EmployeeImplementDAO();
@@ -25,23 +25,24 @@ namespace Logic
         // Metodos de Logica, Recibe Peticiones y Eventos de la Capa Presentacion y Delega la tarea a la Capa de Datos.
 
         public void RegisterEmployee(Employee employee) {
-            employeeDAO.RegisterEmployee(employee);
+            employeeDAO.RegisterEntity(employee);
         }
+
         public List<Employee> ListEmployees() {
-            var listEmployees = employeeDAO.ListEmployees();
+            var listEmployees = employeeDAO.GetListEntities();
             return listEmployees;
         }
 
         public void DeleteEmployee(int id) {
-            employeeDAO.DeleteEmployee(id);
+            employeeDAO.DeleteEntity(id);
         }
 
         public void UpdateEmployee(Employee employee) {
-            employeeDAO.UpdateEmployee(employee);
+            employeeDAO.UpdateEntity(employee);
         }
 
         public Employee GetEmployeeID(int id) {                     
-            var objEmployee = employeeDAO.GetEmployeeByID(id);
+            var objEmployee = employeeDAO.GetEntityByID(id);
             return objEmployee;
         }
 

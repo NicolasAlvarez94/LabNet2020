@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Dao.Context;
 
 namespace Data.Dao.ExtensionImplementDAO
 {
@@ -15,19 +16,10 @@ namespace Data.Dao.ExtensionImplementDAO
 
         // Metodos de Extension de Acesso a Datos, Extienden la Funcionalidad de EmployeeImplementDAO.
 
-        public static Employee GetEmployeeByID(this IEmployeeDAO IEmployee, int id) {            
-            try {
-                var objEmployee = (from employee in dbContext.Employees
-                                   where employee.EmployeeID == id
-                                   select employee).First();
-                return objEmployee;
-            }
-            catch (InvalidOperationException ex) { throw ex; }
-            catch (Exception ex) { throw ex; }
-        }
+        #region Metodos Publicos
 
 
-        public static List<Employee> GetEmployeesByCity (this IEmployeeDAO IEmployee, string city) {
+        public static List<Employee> GetEmployeesByCity (this IEntityDAO<Employee> IEmployee, string city) {
             try {
                 var listEmployees = (from employee in dbContext.Employees
                                    where employee.City == city
@@ -39,7 +31,7 @@ namespace Data.Dao.ExtensionImplementDAO
         }
 
 
-        public static List<Employee> GetEmployeesByHireDate(this IEmployeeDAO IEmployee) {
+        public static List<Employee> GetEmployeesByHireDate(this IEntityDAO<Employee> IEmployee) {
             try {             
                 var listEmployees = (from employee in dbContext.Employees
                                      orderby employee.HireDate descending
@@ -51,7 +43,7 @@ namespace Data.Dao.ExtensionImplementDAO
         }
 
 
-        public static int GetNumberOfEmployees(this IEmployeeDAO IEmployee) {
+        public static int GetNumberOfEmployees(this IEntityDAO<Employee> IEmployee) {
             try {
                 var intNumberEmployees = (from employee in dbContext.Employees
                                      select employee).Count();
@@ -61,5 +53,6 @@ namespace Data.Dao.ExtensionImplementDAO
             catch (Exception ex) { throw ex; }
         }
 
+        #endregion
     }
 }

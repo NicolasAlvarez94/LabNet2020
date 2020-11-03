@@ -13,7 +13,7 @@ namespace Logic
 {
     public class CategoryLogic
     {
-        private ICategoryDAO categoryDAO;
+        private IEntityDAO<Category> categoryDAO;
 
         public CategoryLogic() {
             this.categoryDAO = new CategoryImplementDAO();           
@@ -25,24 +25,24 @@ namespace Logic
         // Metodos de Logica, Recibe Peticiones y Eventos de la Capa Presentacion y Delega la tarea a la Capa de Datos.
 
         public void RegisterCategory(Category category) {
-            categoryDAO.RegisterCategory(category);
+            categoryDAO.RegisterEntity(category);
         }
 
         public List<Category> ListCategories() {
-            var listCategories = categoryDAO.ListCategories();
+            var listCategories = categoryDAO.GetListEntities();
             return listCategories;
         }
 
         public void DeleteCategory(int id) {
-            categoryDAO.DeleteCategory(id);
+            categoryDAO.DeleteEntity(id);
         }
 
         public void UpdateCategory(Category category) {
-            categoryDAO.UpdateCategory(category);
+            categoryDAO.UpdateEntity(category);
         }
 
         public Category GetCategoryID(int id) {         
-            var objCategory = categoryDAO.GetCategoryByID(id);
+            var objCategory = categoryDAO.GetEntityByID(id);
             return objCategory;
         }
 

@@ -17,39 +17,39 @@ namespace Data.Dao.ImplementDAO.Tests
         [ExpectedException(typeof(InvalidOperationException))]
         public void RegisterEmployeeTest() {         
             // ARRANGE.
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
             var objEmployee = new Employee();
 
             //ACT
-            objEmployeeDAO.RegisterEmployee(objEmployee);
+            objEmployeeDAO.RegisterEntity(objEmployee);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void ListEmployeesTest() {
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
             //ACT.
-            objEmployeeDAO.ListEmployees();
+            objEmployeeDAO.GetListEntities();
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void DeleteEmployeeTest() {         
             int idEmployee = 0;
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
 
             //ACT.
-            objEmployeeDAO.DeleteEmployee(idEmployee);
+            objEmployeeDAO.DeleteEntity(idEmployee);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void UpdateEmployeeTest() {
             var objEmployee = new Employee();
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
 
             //ACT.
-            objEmployeeDAO.UpdateEmployee(objEmployee);
+            objEmployeeDAO.UpdateEntity(objEmployee);
         }
     }
 }

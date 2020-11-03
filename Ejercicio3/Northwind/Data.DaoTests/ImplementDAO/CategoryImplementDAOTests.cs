@@ -19,9 +19,9 @@ namespace Data.Dao.ImplementDAO.Tests
         {
             // ARRANGE.
             var objCategory = new Category();
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();
             // ACT.
-            objCategoryDAO.RegisterCategory(objCategory);
+            objCategoryDAO.RegisterEntity(objCategory);
         }
 
         [TestMethod()]
@@ -29,27 +29,27 @@ namespace Data.Dao.ImplementDAO.Tests
         public void ListCategoriesTest()
         {
             var objCategory = new Category();
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();
             // ACT.
-            objCategoryDAO.ListCategories();
+            objCategoryDAO.GetListEntities();
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void DeleteCategoryTest() {
             var idCategory = 1;
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();
             // ACT.
-            objCategoryDAO.DeleteCategory(idCategory);
+            objCategoryDAO.DeleteEntity(idCategory);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void UpdateCategoryTest() {         
             var objCategory = new Category();
-            ICategoryDAO objCategoryDAO = new CategoryImplementDAO();
+            IEntityDAO<Category> objCategoryDAO = new CategoryImplementDAO();
             // ACT.
-            objCategoryDAO.UpdateCategory(objCategory);
+            objCategoryDAO.UpdateEntity(objCategory);
         }
     }
 }

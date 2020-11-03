@@ -5,25 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Dao.Context;
 
 namespace Data.Dao.ImplementDAO
 {
-    public class EmployeeImplementDAO : IEmployeeDAO
+    public class EmployeeImplementDAO : BaseContextDAO, IEntityDAO<Employee>
     {
-        private static NorthwindContext dbContext;
 
-        public EmployeeImplementDAO() {
-            dbContext = this.GetSingleInstanceContext();            
-        }
-
-        // Singleton
-        private NorthwindContext GetSingleInstanceContext() {         
-            bool validateSingleInstance = dbContext == null;
-
-            if (validateSingleInstance) {             
-                dbContext = new NorthwindContext();
-            }
-            return dbContext;
+        // Contexto Heredado de la BaseContextDao, Invoca a Metodo de la Clase Base para Crear la Instancia
+        public EmployeeImplementDAO() {            
+            dbContext = base.GetSingleInstanceContext();          
         }
 
 
@@ -32,7 +23,7 @@ namespace Data.Dao.ImplementDAO
         // Metodos de Acceso a Datos, Invocados en la Capa de Logica.
         // La Insercion y Actualizacion de Empleados no se Utilizo Todos los Campos. 
 
-        public void RegisterEmployee(Employee employee) {
+        public void RegisterEntity(Employee employee) {
             try {             
                 dbContext.Employees.Add(employee);
                 dbContext.SaveChanges();
@@ -42,8 +33,8 @@ namespace Data.Dao.ImplementDAO
         }
 
 
-        public List<Employee> ListEmployees() {
-            try {
+        public List<Employee> GetListEntities() {
+            try {             
                 List<Employee> listEmployees = dbContext.Employees.ToList();
                 return listEmployees;
             }
@@ -52,8 +43,8 @@ namespace Data.Dao.ImplementDAO
         }
 
 
-        public void DeleteEmployee(int id) {
-            try {
+        public void DeleteEntity(int id) {
+            try {             
                 var objEmployee = (from employe in dbContext.Employees
                                    where employe.EmployeeID == id
                                    select employe).First();
@@ -66,8 +57,8 @@ namespace Data.Dao.ImplementDAO
         }
 
 
-        public void UpdateEmployee(Employee employee) {
-            try {
+        public void UpdateEntity(Employee employee) {
+            try {             
                 var objEmployee = (from employe in dbContext.Employees
                                    where employe.EmployeeID == employee.EmployeeID
                                    select employe).First();
@@ -75,12 +66,24 @@ namespace Data.Dao.ImplementDAO
                 objEmployee.FirstName = employee.FirstName;
                 objEmployee.LastName = employee.LastName;
                 objEmployee.BirthDate = employee.BirthDate;
-                objEmployee.HireDate = employee.HireDate;               
+                objEmployee.HireDate = employee.HireDate;
                 objEmployee.City = employee.City;
-                objEmployee.Region = employee.Region;                
+                objEmployee.Region = employee.Region;
                 objEmployee.Country = employee.Country;
                 objEmployee.HomePhone = employee.HomePhone;
                 dbContext.SaveChanges();
+            }
+            catch (InvalidOperationException ex) { throw ex; }
+            catch (Exception ex) { throw ex; }
+        }
+
+
+        public Employee GetEntityByID(int id) {
+            try {             
+                var objEmployee = (from employee in dbContext.Employees
+                                   where employee.EmployeeID == id
+                                   select employee).First();
+                return objEmployee;
             }
             catch (InvalidOperationException ex) { throw ex; }
             catch (Exception ex) { throw ex; }

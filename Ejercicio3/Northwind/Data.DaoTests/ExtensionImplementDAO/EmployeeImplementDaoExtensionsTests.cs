@@ -19,17 +19,17 @@ namespace Data.Dao.ExtensionImplementDAO.Tests
         public void GetEmployeeByIDTest() {         
             // ARRANGE
             var idEmployee = 2;
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
 
             //ACT 
-            objEmployeeDAO.GetEmployeeByID(idEmployee);
+            objEmployeeDAO.GetEntityByID(idEmployee);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void GetEmployeesByCityTest() {                     
             var city = "Texas";
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
             //ACT 
             objEmployeeDAO.GetEmployeesByCity(city);
         }
@@ -37,7 +37,7 @@ namespace Data.Dao.ExtensionImplementDAO.Tests
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void GetEmployeesByHireDateTest() {                                 
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
             //ACT 
             objEmployeeDAO.GetEmployeesByHireDate();
         }
@@ -45,7 +45,7 @@ namespace Data.Dao.ExtensionImplementDAO.Tests
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void GetNumberOfEmployeesTest() {                     
-            IEmployeeDAO objEmployeeDAO = new EmployeeImplementDAO();
+            IEntityDAO<Employee> objEmployeeDAO = new EmployeeImplementDAO();
             // ACT. 
             objEmployeeDAO.GetNumberOfEmployees();                       
         }
