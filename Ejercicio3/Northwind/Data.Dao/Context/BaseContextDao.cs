@@ -9,7 +9,7 @@ namespace Data.Dao.Context
     public abstract class BaseContextDAO
     {
         
-        public static NorthwindContext dbContext = null;
+        protected static NorthwindContext dbContext = null;
 
         public BaseContextDAO() {
             dbContext = GetSingleInstanceContext();
