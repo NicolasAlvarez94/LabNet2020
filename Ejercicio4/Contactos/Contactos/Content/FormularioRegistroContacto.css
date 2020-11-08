@@ -1,0 +1,87 @@
+﻿
+/*Color, Tipo de Letra y otros Estilos del Formulario*/
+form {
+    border-bottom: solid 3px;
+    border-color: black;
+    font-family: 'Times New Roman';
+    font-size: large;
+    background-color: whitesmoke;
+    margin:auto;
+}
+/************************************/
+
+
+form div {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+body {
+    background-color: #57595C;
+}
+
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    border:none;
+}
+
+input[type="number"] {
+    display: block;    
+    border: none;
+}
+
+input:focus {
+    box-shadow: 0 8px 6px -6px #2B6092;    
+    outline: 0 none;
+}
+
+
+#EstiloRadioButton div {
+    margin-left:0px;
+    margin-top: 5px;
+}
+
+.BotonRegistrar {    
+    margin-bottom:10px;
+    width: 140px;
+    height: 40px;
+    background-color: #40403E;
+    color: white;
+}
+
+.BotonLimpiar {    
+    margin-bottom: 10px;
+    float: right;
+    width: 140px;
+    height: 40px;
+    background-color: #40403E;
+    color: white;
+}
+
+.Titulo {
+    height: 40px;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #40403E;
+    color: white;
+}
+
+.MensajeError {
+    font-family: 'Times New Roman';
+    font-size: medium;
+    color: red;
+}
+
+.MensajeAlertaError{
+    display:none;
+    color:red;
+    font-weight:bold;
+    margin-bottom:0px;
+}
+
+

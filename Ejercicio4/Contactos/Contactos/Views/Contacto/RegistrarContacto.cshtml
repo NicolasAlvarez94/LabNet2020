@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "RegistrarContacto";
+}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">EL CONTACTO SE HA REGISTRADO CORRECTAMENTE</h4>
+    @Html.ActionLink("VOLVER", "Registrar", "Contacto", new { area = "" }, new { @class = "btn btn-success" })
+    <hr>
+    @Html.ActionLink("VER CONTACTOS", "ListarContactos", "Contacto", new { area = "" }, new { @class = "btn btn-success" })
+</div>

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Registrar";
+}
+
+
+<!-- Archivo Externo para el uso de Diferentes clases para el Formulario-->
+<link href="~/Content/FormularioRegistroContacto.css" rel="stylesheet" />
+
+<!-- Ancho del Campo Edad a traves de la Etiqueta style-->
+<style>
+    input[type="number"] {
+        width: 100%;
+    }
+</style>
+
+
+<div>
+    <h4 class="Titulo">CONTACTO</h4>
+</div>
+
+
+
+<!-- Ancho del Formulario a traves del Atributo style-->
+<form action="RegistrarContacto" method="post" style="width:90%;">
+
+    <div style="margin-top:0px;">
+        <p>Informacion Personal</p>
+        <label for="Nombre">Nombre:</label>
+        <input type="text" id="Nombre" name="nombre" placeholder="Ingrese su Nombre">
+        <P id="ErrorNombre" class="MensajeError"></P>
+    </div>
+
+    <div>
+        <label for="Apellido">Apellido:</label>
+        <input id="Apellido" type="text" name="apellido" placeholder="Ingrese su Apellido" />
+        <P id="ErrorApellido" class="MensajeError"></P>
+    </div>
+
+    <div>
+        <label for="Edad">Edad:</label>
+        <input id="Edad" type="number" name="edad" placeholder="Ingrese su Edad" />
+        <P id="ErrorEdad" class="MensajeError"></P>
+    </div>
+
+
+    <div id="EstiloRadioButton">
+        <p>Seleccion Genero</p>
+        <div>
+            <label>Masculino</label>
+            <input id="Genero1" type="radio" name="genero" value="M" />
+        </div>
+        <div>
+            <label>Femenino</label>
+            <input id="Genero2" type="radio" name="genero" value="F" />
+        </div>
+        <div>
+            <label>Otro</label>
+            <input id="Genero3" type="radio" name="genero" value="O" />
+        </div>
+    </div>
+
+    <div>
+        <p>Informacion Adicional</p>
+        <label for="Empresa">Empresa:</label>
+        <input id="Empresa" type="text" name="empresa" placeholder="Ingrese su Empresa" />
+    </div>
+
+    <div class="alert alert-danger MensajeAlertaError" role="alert" id="AlertaErrorFormulario">
+        COMPLETE LOS CAMPOS OBLIGATORIOS
+    </div>
+
+    <div>
+        <input type="submit" name="name" value="Registrar" class="BotonRegistrar" id="btnRegistrar" />
+        <input type="button" name="name" value="Limpiar" class="BotonLimpiar" id="btnLimpiar" />
+    </div>
+</form>
+
+
+
+<script src="~/Scripts/FormularioContacto.js"></script>
