@@ -14,8 +14,13 @@ namespace Contactos.Controllers
         
 
         public ActionResult ListarContactos() {
-            List<Models.Contacto> listaContactos = contactoDAO.ListarDatos();
-            return View(listaContactos);
+            try {
+                List<Models.Contacto> listaContactos = contactoDAO.ListarDatos();
+                return View(listaContactos);
+            }
+            // Pendiente. Lanzar Mensaje a la Vista Usuario en caso de Error.
+            catch (InvalidOperationException ex) { throw ex; }
+            catch (Exception ex) { throw ex; }
         }
 
                 
@@ -36,6 +41,8 @@ namespace Contactos.Controllers
                 contactoDAO.Registrar(objContacto);
                 return View(objContacto);
             }
+
+            // Pendiente. Lanzar Mensaje a la Vista Usuario en caso de Error.
             catch (InvalidOperationException ex) { throw ex; }
             catch (Exception ex) { throw ex; }                             
         }
