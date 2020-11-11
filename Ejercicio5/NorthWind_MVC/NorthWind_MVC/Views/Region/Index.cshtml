@@ -1,0 +1,24 @@
+﻿@model List<NorthWind_MVC.ViewModels.RegionViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Regiones</th>
+            @*<th scope="col">First</th>*@                        
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var regionViewModel in Model) {             
+                <tr>
+                    <th scope="row">@regionViewModel.DescripcionRegion</th>                   
+                </tr>
+            }
+        }
+    </tbody>
+</table>

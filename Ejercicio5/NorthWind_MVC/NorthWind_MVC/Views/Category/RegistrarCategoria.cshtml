@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "RegistrarCategoria";
+}
+
+<link href="~/Content/CategoryStyles.css" rel="stylesheet" />
+
+
+<h2 class="TituloCategoryFormulario bg-dark">REGISTRAR CATEGORIA</h2>
+
+<form action="RegistrarCategoria" method="post" class="FormularioCategory" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Ingrese Nombre de Categoria" required>
+            <p id="ErrorNombre" class="MensajeError"></p>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="descripcion">Descripcion:</label>
+            <input type="text" class="form-control" id="descripcion" name="Descripcion" placeholder="Ingrese una Descripcion" required>
+            <p id="ErrorDescripcion" class="MensajeError"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imagen">Imagen:</label>
+        <input type="file" class="form-control" id="imagen" name="Imagen">
+        <p id="ErrorImagen" class="MensajeError"></p>
+    </div>
+
+    <div>
+        <input type="submit" name="name" value="REGISTRAR" id="btnCategory" class="BotonCategory btn btn-dark" />
+        @Html.ActionLink("CANCELAR", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })
+    </div>
+
+    <div class="alert alert-danger MensajeAlertaError" role="alert" id="AlertaError">
+        <h4 class="alert-heading">ERROR EN REGISTRO!!</h4>
+        <p>COMPLETE TODOS LOS CAMPOS</p>
+        <hr>
+        <p class="mb-0">ES NECESARIO COMPLETAR TODOS LOS CAMPOS PARA DAR DE ALTA UNA CATEGORIA</p>
+    </div>
+</form>
+
+
+
+<script src="~/ScriptModel/CategoryScript.js"></script>

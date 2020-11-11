@@ -1,0 +1,19 @@
+﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<style>
+/*    body {
+        background-color: #F4ECEB;
+    }*/
+    .MensajeError{
+        color:red;        
+    }
+</style>
+
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading MensajeError">Error!!</h4>
+    <p class="MensajeError">Error de Operacion</p>
+    <hr>
+    <p class="mb-0 MensajeError">Vuelva a intentar mas tardes. Por el momento, estamos con problemas tecnicos</p>
+</div>
+
+@Html.ActionLink("VOLVER A CATEGORIAS", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })

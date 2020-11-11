@@ -1,0 +1,33 @@
+﻿@model List<NorthWind_MVC.ViewModels.ProductViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/ProductStyles.css" rel="stylesheet" />
+
+<h2 class="TituloProductos bg-dark">Productos</h2>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var productoViewModel in Model)
+            {
+                <tr>
+                    <th scope="row">@productoViewModel.ID</th>
+                    <th scope="row">@productoViewModel.NombreProducto</th>
+                    <th scope="row">@productoViewModel.Stock</th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("VOLVER A CATEGORIAS", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })
+

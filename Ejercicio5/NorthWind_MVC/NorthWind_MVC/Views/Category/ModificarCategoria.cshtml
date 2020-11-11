@@ -1,0 +1,44 @@
+﻿@model Entidades.Category
+
+@{
+    ViewBag.Title = "ModificarCategoria";
+}
+
+<link href="~/Content/CategoryStyles.css" rel="stylesheet" />
+
+<h2 class="TituloCategoryFormulario bg-dark text-white">MODIFICAR CATEGORIA</h2>
+
+
+<form action="ModificarCategoria" method="post" class="FormularioCategory">
+    <div class="form-group">
+        <label for="id">ID:</label>
+        @Html.TextBoxFor(model => model.CategoryID, new {@readonly = "readonly", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", id = "nombre" })
+        <p id="ErrorNombre" class="MensajeError"></p>
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripcion:</label>
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", id = "descripcion" })
+        <p id="ErrorDescripcion" class="MensajeError"></p>
+    </div>
+
+    <div>
+        <input type="submit" name="name" value="MODIFICAR" id="btnCategory" class="BotonCategory btn btn-dark" />
+        @Html.ActionLink("CANCELAR", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })
+    </div>
+
+    <div class="alert alert-danger MensajeAlertaError" role="alert" id="AlertaError">
+        <h4 class="alert-heading">ERROR DE MODIFICACION!!</h4>
+        <p>LOS CAMPOS NO PUEDEN ESTAR VACIOS</p>
+        <hr>
+        <p class="mb-0">ES NECESARIO QUE COMPLETE TODOS LOS CAMPOS PARA MODIFICAR UNA CATEGORIA</p>
+    </div>
+</form>
+
+
+<script src="~/ScriptModel/CategoryScript.js"></script>

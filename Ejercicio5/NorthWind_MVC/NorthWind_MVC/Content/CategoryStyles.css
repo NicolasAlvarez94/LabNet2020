@@ -1,0 +1,47 @@
+﻿
+.TituloCategoryTabla{    
+    margin:auto;
+    margin-top:30px;
+    margin-bottom:30px;
+    color:white;
+    text-align:center;
+}
+
+.TituloCategoryFormulario {
+    margin-top: 150px;
+    color: white;
+    text-align: center;
+}
+
+.FormularioCategory {
+    margin-top: 30px;
+    border-bottom: solid 4px black
+}
+
+
+.BotonCategory {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.BotonCategoryCancelar {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: right;
+}
+
+.MensajeAlertaError {
+    display: none;
+    color: red;
+    font-weight: bold;    
+}
+
+.MensajeError {    
+    font-size: medium;
+    color: red;
+}
+
+.BotonProductos{
+    margin-top:10px;
+    width:210px;
+}
