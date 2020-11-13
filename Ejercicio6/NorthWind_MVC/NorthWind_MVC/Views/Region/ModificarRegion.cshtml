@@ -1,0 +1,69 @@
+﻿@model Entidades.Region
+@{
+    ViewBag.Title = "ModificarRegion";
+}
+
+<link href="~/Content/RegionStyles.css" rel="stylesheet" />
+
+
+<h2 class="TituloRegion bg-dark">MODIFICAR REGION</h2>
+
+
+
+<div class="FormularioRegion">
+    @using (Html.BeginForm("ModificarRegionBD", "Region", FormMethod.Post, htmlAttributes: new { id = "frmRegion" }))
+    {
+        @Html.Partial("_RegistroEdicionRegion")
+    }
+
+    <div class="alert alert-danger" role="alert" style="display:none" id="ErrorRegistroRegion">
+        <h4 class="alert-heading">ERROR!!</h4>
+        <p>ERROR DE MODIFICACION DE REGION. VUELVA INTENTAR MAS TARDE, PROBLEMAS TECNICOS!!!</p>
+        <hr>
+    </div>
+</div>
+
+
+
+
+
+<!--PUPUP como respuesta de modificacion exitosa -->
+
+<div class="modal" tabindex="-1" role="dialog" id="ModalMensajeRegistro">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title text-success">MODIFICACION EXITOSA</h5>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">LA REGION SE HA MODIFICADO EXITOSAMENTE!!</p>
+            </div>
+            <div class="modal-footer bg-dark">
+                @Html.ActionLink("ACEPTAR", "Index", "Region", new { area = "" }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Enviando Datos mediante AJAX y recibiendo respuesta del servidor -->
+
+<script>
+        $('#btnRegistrar').click(function () {
+            var formContainer = $('#frmRegion');
+            $.ajax({
+                url: '@Url.Action("ModificarRegionBD", "Region")',
+                type: 'POST',
+                data: formContainer.serialize(),
+                success: function (result) {
+                    if (result) {
+                        $('#ModalMensajeRegistro').show();
+                    }
+                    else {
+                        $('#ErrorRegistroRegion').show();
+                    }
+                }
+            });
+        });
+</script>

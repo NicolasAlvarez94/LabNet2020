@@ -1,0 +1,86 @@
+﻿@model List<NorthWind_MVC.ViewModels.CategoryViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/CategoryStyles.css" rel="stylesheet" />
+
+
+<h2 class="TituloCategoryFormulario bg-dark">CATEGORIAS</h2>
+
+
+<div style="margin-bottom:15px; margin-top:15px;">
+    @Html.ActionLink("REGISTRAR", "RegistrarCategoria", "Category", new { area = "" }, new { @class = "btn btn-dark" })
+
+    <button type="button" class="btn btn-dark" style="float:right; margin-left:8px;">
+        OPERACIONES DE SESION USUARIO: <span class="badge badge-light">@Session["SessionOperaciones"]</span>
+    </button>
+    <button type="button" class="btn btn-dark" style="float:right">
+        OPERACIONES DE APLICACION: <span class="badge badge-light">@ViewBag.operacionesApplicacion</span>
+    </button>
+</div>
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var categoriaViewModel in Model)
+            {
+                <tr>
+                    <th scope="row">@categoriaViewModel.ID</th>
+                    <th scope="row">@categoriaViewModel.NombreCategoria</th>
+                    <th scope="row">@categoriaViewModel.DescripcionCategoria</th>
+                    <th scope="row">
+
+                        @Html.ActionLink("MODIFICAR", "ModificarCategoria", "Category", new { categoriaViewModel.ID, categoriaViewModel.DescripcionCategoria, categoriaViewModel.NombreCategoria }, new { @class = "btn btn-dark" })
+                        <input type="button" value="ELIMINAR" class="btn btn-danger" onclick="MostrarIdModalEliminarCategoria(@categoriaViewModel.ID)" />
+                        @Html.ActionLink("VER PRODUCTOS", "Index", "Product", new { categoriaViewModel.ID }, new { @class = "btn btn-dark" })
+
+                    </th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="ventanaModalEliminar">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title">ELIMINAR</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form action="/Category/EliminarCategoria" method="post">
+                <div class="modal-body">
+                    <p>¿ESTA SEGURO QUE DESEA ELIMINAR EL REGISTRO?</p>
+                    <div class="form-group">
+                        <label for="idCategoria">ID:</label>
+                        <input type="text" class="form-control" id="idCategoria" name="ID" readonly>
+                    </div>
+                </div>
+
+                <div class="modal-footer bg-dark">
+                    <input type="submit" value="ELIMINAR" class="btn btn-danger" />
+                    @Html.ActionLink("CANCELAR", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/ScriptModel/CategoryScript.js"></script>

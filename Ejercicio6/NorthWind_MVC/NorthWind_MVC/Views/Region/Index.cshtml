@@ -1,0 +1,83 @@
+﻿@model List<Entidades.Region>
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/RegionStyles.css" rel="stylesheet" />
+
+
+<h2 class="bg-dark TituloRegion">REGIONES</h2>
+
+@Html.ActionLink("REGISTRAR", "RegistrarRegion", "Region", new { area = "" }, new { @class = "btn btn-dark BotonRegistarRegion" })
+
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var region in Model)
+            {
+                <tr>
+                    <th scope="row">@region.RegionID</th>
+                    <th scope="row">@region.RegionDescription</th>
+                    <th scope="row">
+                        @Html.ActionLink("MODIFICAR", "ModificarRegion", "Region", new { region.RegionID, region.RegionDescription }, new { @class = "btn btn-dark" })
+                        <input type="button" value="ELIMINAR" class="btn btn-danger" onclick="MostrarIdModalEliminarRegion(@region.RegionID)" />
+                    </th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<!--POPUP para Eliminacion de Region-->
+
+<div class="modal" tabindex="-1" role="dialog" id="ventanaModalEliminar">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title">ELIMINAR</h5>
+            </div>
+
+            <form action="/Region/EliminarRegion" method="post">
+                <div class="modal-body">
+                    <p>¿ESTA SEGURO QUE DESEA ELIMINAR LA REGION?</p>
+                    <div class="form-group">
+                        <label for="idRegion">ID:</label>
+                        <input type="text" class="form-control" id="idRegion" name="ID" readonly>
+                    </div>
+                </div>
+
+                <div class="modal-footer bg-dark">
+                    <input type="submit" value="ELIMINAR" class="btn btn-danger" />
+                    @Html.ActionLink("CANCELAR", "Index", "Region", new { area = "" }, new { @class = "btn btn-danger BotonCancelarFormulario" })
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    $('#btnRegistrar').on("click", function () {
+        $('#ventanaModalModificar').show(); 
+    });
+</script>
+
+
+
+
+
+
+
+<script src="~/ScriptModel/RegionScript.js"></script>
