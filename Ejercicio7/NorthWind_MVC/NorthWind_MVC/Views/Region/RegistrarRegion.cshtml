@@ -1,0 +1,58 @@
+﻿@model Entidades.Region
+@{
+    ViewBag.Title = "RegistrarRegion";
+}
+
+<link href="~/Content/RegionStyles.css" rel="stylesheet" />
+
+
+
+<h2 class="TituloRegion bg-dark">REGISTRAR REGION</h2>
+
+
+<div class="FormularioRegion">
+    @using (Html.BeginForm("RegistrarRegionBD", "Region", FormMethod.Post, htmlAttributes: new { id = "frmRegion" }))
+    {
+        @Html.Partial("_RegistroEdicionRegion")
+    }
+</div>
+
+
+
+<!--PUPUP como respuesta de registracion exitosa -->
+
+<div class="modal" tabindex="-1" role="dialog" id="ModalMensajeRegistro">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title text-success">REGISTRACION EXITOSA</h5>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">LA REGION SE HA REGISTRADO EXITOSAMENTE!!</p>
+            </div>
+            <div class="modal-footer bg-dark">
+                @Html.ActionLink("ACEPTAR", "Index", "Region", new { area = "" }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@{
+    NorthWind_MVC.Controllers.RegionController objRegionController = new NorthWind_MVC.Controllers.RegionController();
+    bool validarMensaje = objRegionController.ObtenerValidacionMensaje();
+
+    if (validarMensaje)
+    {
+        objRegionController.InvalidarMensajeVista();
+        <script>
+            $('#ModalMensajeRegistro').show();
+        </script>
+    }
+}
+
+
+<script src="~/ScriptModel/RegionScript.js"></script>
+
+

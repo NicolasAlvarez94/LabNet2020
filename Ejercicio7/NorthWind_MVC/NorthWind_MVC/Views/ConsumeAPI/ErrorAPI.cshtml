@@ -1,0 +1,13 @@
+﻿@model Entidades.EntidadesExceptionAPI.ErrorRespuestaHttpApiException
+@{
+    ViewBag.Title = "ErrorAPI";
+}
+
+<h2 style="margin-top:100px" class="text-danger">ERROR API</h2>
+
+<p class="text-danger">ERROR: @Model.Message</p>
+
+@Html.Partial("_ErrorOperacion")
+
+                
+

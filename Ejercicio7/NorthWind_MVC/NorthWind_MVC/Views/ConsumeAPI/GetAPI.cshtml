@@ -1,0 +1,41 @@
+﻿@model Entidades.EntidadesExceptionAPI.ProvinciaModeloJson
+@{
+    ViewBag.Title = "GetAPI";
+}
+
+<style>
+    .Titulo{
+        margin:auto;
+        margin-top:100px;
+        margin-bottom:20px;
+    }
+</style>
+
+
+<h2 class="bg-dark text-center text-white Titulo">INFORMACION DE PROVINCIAS CONSUMIDA DE API</h2>
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre Provincia</th>
+            <th scope="col">Latitud</th>
+            <th scope="col">Longitud</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var provincia in Model.provincias)
+            {
+                <tr>
+                    <th scope="row">@provincia.id</th>
+                    <th scope="row">@provincia.nombre</th>
+                    <th scope="row">@provincia.centroide.lat</th>
+                    <th scope="row">@provincia.centroide.lon</th>                
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

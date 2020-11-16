@@ -1,0 +1,46 @@
+﻿@model List<EntidadesAPI.EMPLOYEE>
+@{
+    ViewBag.Title = "GetApiEmployeesList";
+}
+
+<style>
+    .Titulo {
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<h2 class="bg-dark text-center text-white Titulo">INFORMACION DE EMPLEADOS CONSUMIDA DE API PROPIA</h2>
+
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Salario</th>
+            <th scope="col">Fecha Contratacion</th>
+            <th scope="col">Departamento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var empleado in Model)
+            {
+                <tr>
+                    <th scope="row">@empleado.ID</th>
+                    <th scope="row">@empleado.FIRST_NAME</th>
+                    <th scope="row">@empleado.LAST_NAME</th>
+                    <th scope="row">@empleado.SALARY</th>
+                    <th scope="row">@empleado.HIRE_DATE.Date.ToShortDateString()</th>
+                    <th scope="row">@empleado.DEPARTMENT_ID</th>  
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

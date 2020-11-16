@@ -1,0 +1,31 @@
+﻿
+.FormularioRegion{
+    border-bottom: 3px solid black;
+}
+
+
+.BotonCancelarFormulario{
+    float:right;    
+}
+
+
+
+.TituloRegion{
+    color:white;
+    text-align:center;
+    margin:auto;
+    margin-top:150px;
+    margin-bottom:30px;
+}
+
+.TituloRegion{
+    color:white;
+    text-align:center;
+    margin:auto;
+    margin-top:100px;
+}
+
+.BotonRegistarRegion{
+    margin-bottom:10px;
+    margin-top:10px;
+}

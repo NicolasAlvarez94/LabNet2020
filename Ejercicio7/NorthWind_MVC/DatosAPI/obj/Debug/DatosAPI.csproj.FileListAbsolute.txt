@@ -1,0 +1,15 @@
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\obj\Debug\DatosAPI.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\obj\Debug\DatosAPI.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\DatosAPI.dll.config
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\DatosAPI.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\DatosAPI.pdb
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntidadesAPI.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntidadesAPI.pdb
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\obj\Debug\DatosAPI.csproj.CopyComplete
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\obj\Debug\DatosAPI.dll
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\obj\Debug\DatosAPI.pdb
+C:\Users\Usuario\Documents\INFORMATICA\PRACTICAS_.NET\Ejercicio7\NorthWind_MVC\DatosAPI\bin\Debug\EntidadesAPI.dll.config
