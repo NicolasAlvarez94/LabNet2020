@@ -1,23 +1,25 @@
 ﻿
-
-
-
-function AgregarRegion() {
-    var frm = new FormData();
+$('#btnAceptar').on("click", function () {
     var descripcion = $('#descripcion').val();
-    frm.append("Descripcion", descripcion);
 
-    $.ajax({
-        type: "POST",
-        url: "Region/RegistrarRegion",
-        data: frm,
-        contentType: false,
-        processData: false,
-        success: function (data) {
-            MostrarModalRegistrar();
-        }
-    });
-}
+    var validacion = descripcion == "";
+    if (validacion) {
+        $('#ErrorOperacionRegion').show();
+        $('#ErrorDescripcion').text('EL CAMPO DESCRIPCION ES OBLIGATORIO').show();
+        return false;
+    }
+    else {
+        return true;
+    }
+});
+
+
+$('form input').on("focus", function () {
+    $('#ErrorOperacionRegion').hide();    
+    $('#ErrorDescripcion').hide();    
+})
+
+
 
 
 function MostrarIdModalEliminarRegion(id) {

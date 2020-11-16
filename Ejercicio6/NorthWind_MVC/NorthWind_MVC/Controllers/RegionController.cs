@@ -11,7 +11,15 @@ namespace NorthWind_MVC.Controllers
 {
     public class RegionController : Controller
     {
-        private readonly RegionLogica objRegionLogica = new RegionLogica(); 
+        // Solucion Temporaria, para mostrar POPUP. 
+        private static bool validacion;
+        private readonly RegionLogica objRegionLogica; 
+
+        public RegionController() {
+            this.objRegionLogica = new RegionLogica();
+        }
+
+
 
         public ActionResult Index() {         
             var listaRegiones = objRegionLogica.TraerRegiones();
@@ -23,12 +31,13 @@ namespace NorthWind_MVC.Controllers
         }
 
 
-        public JsonResult RegistrarRegionBD(Region region) {
+        public ActionResult RegistrarRegionBD(Region region) {
             try {
                 objRegionLogica.RegistrarRegion(region);
-                return Json(true, JsonRequestBehavior.AllowGet);
+                validacion = true;
+                return RedirectToAction("RegistrarRegion");                               
             }
-            catch (Exception) { return Json(false, JsonRequestBehavior.AllowGet); }                       
+            catch (Exception) { return View("ErrorOperacionRegion"); }                       
         }
 
 
@@ -36,12 +45,13 @@ namespace NorthWind_MVC.Controllers
             return View(region);
         }
 
-        public JsonResult ModificarRegionBD(Region region) {         
+        public ActionResult ModificarRegionBD(Region region) {         
             try {
-                objRegionLogica.ModificarRegion(region);
-                return Json(true, JsonRequestBehavior.AllowGet);
+                objRegionLogica.ModificarRegion(region);           
+                validacion = true;
+                return RedirectToAction("ModificarRegion");
             }
-            catch (Exception) { return Json(false, JsonRequestBehavior.AllowGet);}            
+            catch (Exception) { return View("ErrorOperacionRegion"); }            
         }
 
 
@@ -53,14 +63,24 @@ namespace NorthWind_MVC.Controllers
                 objRegionLogica.EliminarRegion(idRegion);
                 return RedirectToAction("Index");
             }
-            catch (Exception) { return ErrorOperacionRegion(); }                        
+            catch (Exception) { return View("ErrorOperacionRegion"); }                        
         }
 
 
 
+        // Metodos y Accion auxiliar para Mensajes.
         public ActionResult ErrorOperacionRegion() {
             return View();
         }
+
+        public void InvalidarMensajeVista() {         
+            validacion = false;
+        }
+
+        public bool ObtenerValidacionMensaje() {         
+            return validacion;
+        }
+
 
 
     }

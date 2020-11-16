@@ -14,12 +14,19 @@ namespace NorthWind_MVC.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly CategoryLogica objCategoriaLogica = new CategoryLogica();
-        private readonly CategoryViewModel objCategoriaVistaModelo = new CategoryViewModel();
+        private static string cantidadOperaciones;
+        private readonly CategoryLogica objCategoriaLogica;
+        private readonly CategoryViewModel objCategoriaVistaModelo;
         
+        public CategoryController() {
+            objCategoriaLogica = new CategoryLogica();
+            objCategoriaVistaModelo = new CategoryViewModel();
+        }
+
 
         public ActionResult Index() {
             List<CategoryViewModel> categoriasModeloVista = objCategoriaVistaModelo.TraerCategoriasViewModel();
+            ViewBag.varibleAplicacionCantidadOperaciones = cantidadOperaciones;
             return View(categoriasModeloVista);
         }
 
@@ -105,8 +112,8 @@ namespace NorthWind_MVC.Controllers
                 cantidadOperacionesAplicacion ++;
 
                 Session["SessionOperaciones"] = cantidadOperacionesSession.ToString();
-                HttpContext.Application["AplicacionOperaciones"] = cantidadOperacionesAplicacion.ToString();                
-                ViewBag.operacionesApplicacion = HttpContext.Application["AplicacionOperaciones"];
+                HttpContext.Application["AplicacionOperaciones"] = cantidadOperacionesAplicacion;                                
+                cantidadOperaciones = HttpContext.Application["AplicacionOperaciones"].ToString();
             }            
         }
 

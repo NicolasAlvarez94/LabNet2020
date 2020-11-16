@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Datos.Contexto
 {
-    public abstract class BaseContextDAO: NorthWindContext
+    public abstract class BaseContextDAO
     {
-        protected static NorthWindContext bdContext;
+        protected readonly NorthWindContext bdContext;
 
         public BaseContextDAO() {
-            bdContext = base.GetContext();
+            this.bdContext = NorthWindContext.GetContext();
         }
 
-        public NorthWindContext GetBaseContext() {
-            return bdContext;
-        }
+       
     }
 }

@@ -12,10 +12,10 @@ namespace Datos
         // Mantenemos sola Instancia del Contexto.
 
         private static NorthWindContext bdContext = null;  
-        protected NorthWindContext(): base("name=NorthWindContext") {         
+        private NorthWindContext(): base("name=NorthWindContext") {         
         }
 
-        protected NorthWindContext GetContext() {
+        public static NorthWindContext GetContext() {
             bool singleInstance = bdContext == null;
             if (singleInstance) {
                 bdContext = new NorthWindContext();

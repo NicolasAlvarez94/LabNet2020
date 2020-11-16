@@ -15,12 +15,6 @@
     {
         @Html.Partial("_RegistroEdicionRegion")
     }
-
-    <div class="alert alert-danger" role="alert" style="display:none" id="ErrorRegistroRegion">
-        <h4 class="alert-heading">ERROR!!</h4>
-        <p>ERROR DE REGISTRACION DE REGION. VUELVA INTENTAR MAS TARDE, PROBLEMAS TECNICOS!!!</p>
-        <hr>
-    </div>
 </div>
 
 
@@ -31,7 +25,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
-                <h5 class="modal-title text-success">REGISTRACION EXITOSA</h5>                           
+                <h5 class="modal-title text-success">REGISTRACION EXITOSA</h5>
             </div>
             <div class="modal-body">
                 <p class="text-success">LA REGION SE HA REGISTRADO EXITOSAMENTE!!</p>
@@ -45,26 +39,26 @@
 
 
 
-<!--Enviando Datos mediante AJAX y recibiendo respuesta del servidor -->
+<!--Razor para mostrar POPUP-->
 
-<script>
-        $('#btnRegistrar').click(function () {
-            var formContainer = $('#frmRegion');
-            $.ajax({
-                url: '@Url.Action("RegistrarRegionBD", "Region")',
-                type: 'POST',
-                data: formContainer.serialize(),
-                success: function (result) {
-                    if (result) {
-                        $('#ModalMensajeRegistro').show();
-                    }
-                    else {
-                        $('#ErrorRegistroRegion').show();
-                    }
-                }
-            });
-        });
-</script>
+@{
+    NorthWind_MVC.Controllers.RegionController objRegionController = new NorthWind_MVC.Controllers.RegionController();
+    bool validarMensaje = objRegionController.ObtenerValidacionMensaje();
+
+    if (validarMensaje)
+    {
+        objRegionController.InvalidarMensajeVista();
+        <script>
+            $('#ModalMensajeRegistro').show();
+        </script>
+    }
+}
+
+
+
+<script src="~/ScriptModel/RegionScript.js"></script>
+
+
 
 
 
