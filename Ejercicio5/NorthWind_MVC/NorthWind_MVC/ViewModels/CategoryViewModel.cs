@@ -29,12 +29,33 @@ namespace NorthWind_MVC.ViewModels
         }
 
 
-        // Interfaz Publica.
-        public List<CategoryViewModel> TraerCategoriasViewModel() {            
+
+        // Todas las categorias.
+        public List<CategoryViewModel> TraerCategoriasViewModel() {
+            try {             
+                var listaCategorias = this.objCategoriaLogica.TraerCategorias();
+                var listaCategoryViewModel = (from categoria in listaCategorias
+                                              select new CategoryViewModel() {                                               
+                                                  ID = categoria.CategoryID,
+                                                  NombreCategoria = categoria.CategoryName,
+                                                  DescripcionCategoria = categoria.Description,                                                  
+                                              }).ToList();
+
+                return listaCategoryViewModel;
+            }
+            catch (InvalidOperationException ex) { throw ex; }
+            catch (Exception ex) { throw ex; }
+        }
+
+
+
+        // Categorias que tienen productos.
+
+        public List<CategoryViewModel> TraerCategoriasViewModelRelacionadas() {            
             try {                
                 var listaProductos = this.objProductoLogica.TraerProductos();
                 var listaCategorias = this.objCategoriaLogica.TraerCategorias();
-                var listaCategoriasViewModel = this.TraerCategoriasViewModel(listaCategorias, listaProductos);
+                var listaCategoriasViewModel = this.TraerCategoriasViewModelRelacionadas(listaCategorias, listaProductos);
 
                 return listaCategoriasViewModel;
             }
@@ -42,9 +63,8 @@ namespace NorthWind_MVC.ViewModels
             catch(Exception ex) { throw ex; }
         }
 
-
-        // Metodo Auxiliar privado. (Excepcion Controlada en el Metodo Publico).
-        private List<CategoryViewModel> TraerCategoriasViewModel(List<Category> categorias, List<Product> productos) {
+        
+        private List<CategoryViewModel> TraerCategoriasViewModelRelacionadas(List<Category> categorias, List<Product> productos) {
             var listaCategoryViewModel = (from categoria in categorias
                                           join producto in productos
                                           on categoria.CategoryID equals producto.CategoryID
@@ -59,6 +79,7 @@ namespace NorthWind_MVC.ViewModels
         } 
 
 
+       
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-$('#btnCategory').on("click", function () {
+$('#btnRegistrar').on("click", function () {
     var nombre = $('#nombre').val();
     var descripcion = $('#descripcion').val();
     var imagen = $('#imagen').val();
@@ -19,16 +19,21 @@ $('#btnCategory').on("click", function () {
         }
         return false;
     }
-    return true;
+    else {               
+        return true;
+    }    
 });
 
 
-$('#btnEliminar').on("click", function () {
-    $('#ventanaModalEliminar').show();
-});
+
+function MostrarModalRegistrar() {    
+    $('#ventanaModalRegistrar').show();    
+}
 
 
-function EliminarCategoria(id) {
+
+
+function MostrarIdModalEliminarCategoria(id) {
     $('#ventanaModalEliminar').show();
     document.getElementById('idCategoria').value = id;    
 }
@@ -41,3 +46,5 @@ $('form input').on("focus", function () {
     $('#ErrorDescripcion').hide();
     $('#ErrorImagen').hide();
 })
+
+

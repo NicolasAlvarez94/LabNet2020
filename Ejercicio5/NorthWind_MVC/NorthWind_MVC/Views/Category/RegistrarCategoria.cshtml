@@ -1,4 +1,4 @@
-﻿
+﻿@model Entidades.Category
 @{
     ViewBag.Title = "RegistrarCategoria";
 }
@@ -8,39 +8,62 @@
 
 <h2 class="TituloCategoryFormulario bg-dark">REGISTRAR CATEGORIA</h2>
 
-<form action="RegistrarCategoria" method="post" class="FormularioCategory" enctype="multipart/form-data">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Ingrese Nombre de Categoria" required>
-            <p id="ErrorNombre" class="MensajeError"></p>
+
+<form action="RegistrarCategoria" method="post" class="FormularioCategory" enctype="multipart/form-data" id="frmCategoria">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nombre">Nombre:</label>
+                @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", id = "nombre" })                
+                <p id="ErrorNombre" class="MensajeError"></p>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="descripcion">Descripcion:</label>
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control", id = "descripcion" })                
+                <p id="ErrorDescripcion" class="MensajeError"></p>
+            </div>
         </div>
 
-        <div class="form-group col-md-6">
-            <label for="descripcion">Descripcion:</label>
-            <input type="text" class="form-control" id="descripcion" name="Descripcion" placeholder="Ingrese una Descripcion" required>
-            <p id="ErrorDescripcion" class="MensajeError"></p>
+        <div class="form-group">
+            <label for="imagen">Imagen:</label>
+            <input type="file" class="form-control" id="imagen" name="Imagen">
+            <p id="ErrorImagen" class="MensajeError"></p>
+        </div>
+
+        <div>
+            <input type="submit" name="name" value="REGISTRAR" id="btnRegistrar" class="BotonCategory btn btn-dark" />            
+            @Html.ActionLink("CANCELAR", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })
+        </div>
+
+        <div class="alert alert-danger MensajeAlertaError" role="alert" id="AlertaError">
+            <h4 class="alert-heading">ERROR EN REGISTRO!!</h4>
+            <p>COMPLETE TODOS LOS CAMPOS</p>
+            <hr>
+            <p class="mb-0">ES NECESARIO COMPLETAR TODOS LOS CAMPOS PARA DAR DE ALTA UNA CATEGORIA</p>
+        </div>
+    </form>
+
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="ventanaModalRegistrar">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title text-success">REGISTRACION EXITOSA</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-success">LA CATEGORIA SE HA REGISTRADO EXITOSAMENTE!!</p>
+            </div>
+            <div class="modal-footer bg-dark">
+                @Html.ActionLink("ACEPTAR", "Index", "Category", new { area = "" }, new { @class = "btn btn-success" })
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        <label for="imagen">Imagen:</label>
-        <input type="file" class="form-control" id="imagen" name="Imagen">
-        <p id="ErrorImagen" class="MensajeError"></p>
-    </div>
-
-    <div>
-        <input type="submit" name="name" value="REGISTRAR" id="btnCategory" class="BotonCategory btn btn-dark" />
-        @Html.ActionLink("CANCELAR", "Index", "Category", new { area = "" }, new { @class = "btn btn-danger BotonCategoryCancelar" })
-    </div>
-
-    <div class="alert alert-danger MensajeAlertaError" role="alert" id="AlertaError">
-        <h4 class="alert-heading">ERROR EN REGISTRO!!</h4>
-        <p>COMPLETE TODOS LOS CAMPOS</p>
-        <hr>
-        <p class="mb-0">ES NECESARIO COMPLETAR TODOS LOS CAMPOS PARA DAR DE ALTA UNA CATEGORIA</p>
-    </div>
-</form>
+</div>
 
 
 

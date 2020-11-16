@@ -13,7 +13,8 @@ namespace Datos.ImplementacionDAO
     {
         #region Metodos Publicos
         public void RegistrarEntidad(Region pRegion) {
-            try {             
+            try {
+                pRegion.RegionID = this.TraerProximoIdRegion();
                 bdContext.Regions.Add(pRegion);
                 bdContext.SaveChanges();
             }
@@ -58,6 +59,16 @@ namespace Datos.ImplementacionDAO
             }
             catch (InvalidOperationException ex) { throw ex; }
             catch (Exception ex) { throw ex; }            
+        }
+
+
+        private int TraerProximoIdRegion() {
+            var objRegion = (from region in bdContext.Regions
+                             orderby region.RegionID descending
+                             select region).Take(1).First();
+
+            int ultimoId = objRegion.RegionID + 1;
+            return ultimoId;
         }
 
         #endregion

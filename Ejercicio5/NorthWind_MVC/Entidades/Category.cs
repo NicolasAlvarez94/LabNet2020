@@ -15,10 +15,12 @@ namespace Entidades
 
         public int CategoryID { get; set; }
 
-        [Required]
+        
+        [Required(ErrorMessage = "EL CAMPO NOMBRE ES REQUERIDO")]
         [StringLength(15)]
         public string CategoryName { get; set; }
 
+        [Required(ErrorMessage = "CAMPO DESCRIPCION ES REQUERIDO")]
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
 

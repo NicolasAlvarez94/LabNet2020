@@ -26,7 +26,7 @@ namespace Logica
             this.regionDAO.EliminarEntidad(id);        
         }
 
-        public List<Region> TraerDatos() {         
+        public List<Region> TraerRegiones() {         
             List<Region> listaRegiones = this.regionDAO.TraerDatos();
             return listaRegiones;
         }
